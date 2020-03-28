@@ -1,0 +1,11 @@
+<template>
+    <div>
+        <div class="max-w-7xl mx-auto px-4 pb-4 sm:px-6 lg:px-8">
+            <h1 class="text-2xl font-semibold text-gray-900 pb-4 border-b">Switcher</h1>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            Switcher docs
+        </div>
+    </div>
+</template>

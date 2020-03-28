@@ -29,7 +29,7 @@ files.keys().map((key) => {
 
 const router = new VueRouter({
     routes: routes,
-    mode: history
+    mode: 'history'
 });
 
 export default router;

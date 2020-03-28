@@ -35,3 +35,6 @@ npm install
 - click-outside directive
 - utils/Event bus
 - docs
+
+production use:
+remove view/docs directory and router/docs.js
