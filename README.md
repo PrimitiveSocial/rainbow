@@ -21,3 +21,17 @@ npm install
 - **components:** Contains the nested Vue components used in the views components.
 - **router** Contains the route applications file.
 - **store:** Contains the store namespaced modules.
+
+
+## Todo
+- buttons
+- toggle buttons --ok
+- Switcher
+- Dropdown
+- Dropmenu
+- Icons
+- Modal
+- Uploader
+- click-outside directive
+- utils/Event bus
+- docs
