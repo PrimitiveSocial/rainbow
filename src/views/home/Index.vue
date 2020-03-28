@@ -1,3 +1,3 @@
 <template>
-    <div>This is the home page</div>
+    <div class="w-full h-full flex items-center justify-center">Project Rainbow</div>
 </template>
