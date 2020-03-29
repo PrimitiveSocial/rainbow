@@ -25,11 +25,11 @@
             </card>
 
             <!-- With default option card -->
-            <card title="Set default selected option">
+            <card title="Default Selected Option">
                 <div slot="preview">
-                    <p class="text-sm leading-5 text-gray-700 mb-4">
+                    <note>
                         To set a default selected value, use the <code class="inline-code">:default</code> prop.
-                    </p>
+                    </note>
                     <div class="w-64">
                         <toggle-buttons :options="toggleOptions" :default="3"></toggle-buttons>
                     </div>
@@ -47,12 +47,12 @@
             </card>
 
             <!-- Emit to parent card -->
-            <card title="Emit value to parent component">
+            <card title="Emit value">
                 <div slot="preview">
-                    <p class="text-sm leading-5 text-gray-700 mb-4">
+                    <note>
                         To send the selected value back to the parent component, the component emits a <code class="inline-code">@selected</code>
                         event with the value as payload.
-                    </p>
+                    </note>
                     <div class="w-64">
                         <toggle-buttons :options="toggleOptions" @selected="log"></toggle-buttons>
                     </div>
@@ -74,11 +74,12 @@
 
 <script>
     import Card from "./Card";
+    import Note from "./Note";
     import HTMLEncoder from "./HTMLEncoder";
     import ToggleButtons from "@/components/rainbow/ToggleButtons";
 
     export default {
-        components: { ToggleButtons, Card },
+        components: { ToggleButtons, Card, Note },
         mixins: [ HTMLEncoder],
         methods: {
             log(payload) {
@@ -150,6 +151,6 @@
 
 <style scoped>
     .inline-code {
-        @apply bg-red-300 p-1 text-white rounded;
+        @apply bg-red-300 p-1 text-white rounded text-xs;
     }
 </style>

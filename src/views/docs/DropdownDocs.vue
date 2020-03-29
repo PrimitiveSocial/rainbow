@@ -25,11 +25,11 @@
             </card>
 
             <!-- Set default selected option card -->
-            <card title="Set default selected option">
+            <card title="Default Selected Option">
                 <div slot="preview">
-                    <p class="text-sm mb-4 leading-5 text-gray-700">
+                    <note>
                         To set a default selected value, use the <code class="inline-code">:default</code> prop.
-                    </p>
+                    </note>
                     <div class="w-64">
                         <dropdown :options="dropdownOptions" :default="4"></dropdown>
                     </div>
@@ -47,11 +47,11 @@
             </card>
 
             <!-- Customize placeholder card -->
-            <card title="Customize placeholder">
+            <card title="Custom Placeholder">
                 <div slot="preview">
-                    <p class="text-sm mb-4 leading-5 text-gray-700">
+                    <note>
                         To customize the placeholder text, use the <code class="inline-code">:placeholder</code> prop.
-                    </p>
+                    </note>
                     <div class="w-64">
                         <dropdown :options="dropdownOptions" :placeholder="'Pick a course'"></dropdown>
                     </div>
@@ -69,12 +69,12 @@
             </card>
 
             <!-- Emit to parent card -->
-            <card title="Emit value to parent component">
+            <card title="Emit value">
                 <div slot="preview">
-                    <p class="text-sm leading-5 text-gray-700 mb-4">
+                    <note>
                         To send the selected value back to the parent component, the component emits a <code class="inline-code">@selected</code>
                         event with the value as payload.
-                    </p>
+                    </note>
                     <div class="w-64">
                         <dropdown :options="dropdownOptions" @selected="log"></dropdown>
                     </div>
@@ -97,11 +97,12 @@
 
 <script>
     import Card from "./Card";
+    import Note from "./Note";
     import HTMLEncoder from "./HTMLEncoder";
     import Dropdown from "@/components/rainbow/Dropdown";
 
     export default {
-        components: { Card, Dropdown },
+        components: { Card, Note, Dropdown },
         mixins: [ HTMLEncoder],
         methods: {
             log(payload) {
@@ -181,6 +182,6 @@
 </script>
 <style scoped>
     .inline-code {
-        @apply bg-red-300 p-1 text-white rounded;
+        @apply bg-red-300 p-1 text-white rounded text-xs;
     }
 </style>

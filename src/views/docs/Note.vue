@@ -6,7 +6,7 @@
             </svg>
         </div>
         <div class="ml-3">
-            <p class="text-sm leading-6 font-medium text-gray-700">
+            <p class="text-sm leading-6 font-thing text-gray-700">
                 <slot></slot>
             </p>
         </div>
