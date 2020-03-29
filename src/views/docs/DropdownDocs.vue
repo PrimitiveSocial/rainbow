@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="max-w-7xl mx-auto px-4 pb-4 sm:px-6 lg:px-8">
-            <h1 class="text-2xl font-semibold text-gray-900 pb-4 border-b">Toggle Buttons</h1>
+            <h1 class="text-2xl font-semibold text-gray-900 pb-4 border-b">Dropdown</h1>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
@@ -9,7 +9,7 @@
             <card title="Basic Setup">
                 <div slot="preview">
                     <div class="w-64">
-                        <toggle-buttons :options="toggleOptions"></toggle-buttons>
+                        <dropdown :options="dropdownOptions"></dropdown>
                     </div>
                 </div>
                 <div slot="template">
@@ -24,19 +24,41 @@
                 </div>
             </card>
 
-            <!-- With default option card -->
+            <!-- Set default selected option card -->
             <card title="Set default selected option">
                 <div slot="preview">
-                    <p class="text-sm leading-5 text-gray-700 mb-4">
+                    <p class="text-sm mb-4 leading-5 text-gray-700">
                         To set a default selected value, use the <code class="inline-code">:default</code> prop.
                     </p>
                     <div class="w-64">
-                        <toggle-buttons :options="toggleOptions" :default="3"></toggle-buttons>
+                        <dropdown :options="dropdownOptions" :default="4"></dropdown>
                     </div>
                 </div>
                 <div slot="template">
                     <div v-highlight>
                         <pre class="language-html"><code>{{ htmlEncode(code[2]) }}</code></pre>
+                    </div>
+                </div>
+                <div slot="script">
+                    <div v-highlight>
+                        <pre class="language-javascript"><code>{{ htmlEncode(code[1]) }}</code></pre>
+                    </div>
+                </div>
+            </card>
+
+            <!-- Customize placeholder card -->
+            <card title="Customize placeholder">
+                <div slot="preview">
+                    <p class="text-sm mb-4 leading-5 text-gray-700">
+                        To customize the placeholder text, use the <code class="inline-code">:placeholder</code> prop.
+                    </p>
+                    <div class="w-64">
+                        <dropdown :options="dropdownOptions" :placeholder="'Pick a course'"></dropdown>
+                    </div>
+                </div>
+                <div slot="template">
+                    <div v-highlight>
+                        <pre class="language-html"><code>{{ htmlEncode(code[3]) }}</code></pre>
                     </div>
                 </div>
                 <div slot="script">
@@ -54,20 +76,21 @@
                         event with the value as payload.
                     </p>
                     <div class="w-64">
-                        <toggle-buttons :options="toggleOptions" @selected="log"></toggle-buttons>
+                        <dropdown :options="dropdownOptions" @selected="log"></dropdown>
                     </div>
                 </div>
                 <div slot="template">
                     <div v-highlight>
-                        <pre class="language-html"><code>{{ htmlEncode(code[3]) }}</code></pre>
+                        <pre class="language-html"><code>{{ htmlEncode(code[4]) }}</code></pre>
                     </div>
                 </div>
                 <div slot="script">
                     <div v-highlight>
-                        <pre class="language-javascript"><code>{{ htmlEncode(code[4]) }}</code></pre>
+                        <pre class="language-javascript"><code>{{ htmlEncode(code[5]) }}</code></pre>
                     </div>
                 </div>
             </card>
+
         </div>
     </div>
 </template>
@@ -75,64 +98,73 @@
 <script>
     import Card from "./Card";
     import HTMLEncoder from "./HTMLEncoder";
-    import ToggleButtons from "@/components/rainbow/ToggleButtons";
+    import Dropdown from "@/components/rainbow/Dropdown";
 
     export default {
-        components: { ToggleButtons, Card },
+        components: { Card, Dropdown },
         mixins: [ HTMLEncoder],
         methods: {
             log(payload) {
-                window.console.log('The value selected is: ' + payload);
+                window.console.log(payload);
             }
         },
         data: () => {
             return {
-                toggleOptions: [
-                    { value: 1, label: 'Vue'},
-                    { value: 2, label: 'React'},
-                    { value: 3, label: 'Angular'},
+                dropdownOptions: [
+                    { key: 1, value: 'Vue' },
+                    { key: 2, value: 'Tailwind'},
+                    { key: 3, value: 'Laravel'},
+                    { key: 4, value: 'Unit Testing'},
+                    { key: 5, value: 'Events & Queues'},
                 ],
                 code: [
                     // template for first card
-                    '<toggle-buttons :options="toggleOptions"></toggle-buttons>\n',
+                    '<dropdown :options="dropdownOptions"></dropdown>\n',
 
-                    // script for first and second card
-                    'import ToggleButtons from "@/components/rainbow/ToggleButtons";\n' +
+                    // script for first, second and third card
+                    'import Dropdown from "@/components/rainbow/Dropdown";\n' +
                     '\n' +
                     'export default {\n' +
                     '    components: {\n' +
-                    '        ToggleButtons\n' +
+                    '        Dropdown\n' +
                     '    }   ,\n' +
                     '    data: () => {\n' +
                     '        return {\n' +
-                    '            toggleOptions: [\n' +
-                    '                { value: 1, label: "Vue"},\n' +
-                    '                { value: 2, label: "React"},\n' +
-                    '                { value: 3, label: "Angular"},\n' +
+                    '            dropdownOptions: [\n' +
+                    '                { key: 1, value: "Vue"},\n' +
+                    '                { key: 2, value: "Tailwind"},\n' +
+                    '                { key: 3, value: "Laravel"},\n' +
+                    '                { key: 4, value: "Unit Testing"},\n' +
+                    '                { key: 5, value: "Events & Queues"},\n' +
                     '            ]\n' +
                     '        }\n' +
                     '    },\n' +
                     '}\n',
 
                     // template for second card
-                    '<toggle-buttons :options="toggleOptions" :default="3"></toggle-buttons>\n',
+                    '<dropdown :options="dropdownOptions" :default="4"></dropdown>\n',
 
                     // template for third card
-                    '<toggle-buttons :options="toggleOptions" @selected="log"></toggle-buttons>\n',
+                    '<dropdown :options="dropdownOptions" :placehoder="\'Pick a course\'"></dropdown>\n',
 
-                    // script for third card
-                    'import ToggleButtons from "@/components/rainbow/ToggleButtons";\n' +
+                    // template for fourth card
+                    '<dropdown :options="dropdownOptions" @selected="log"></dropdown>\n',
+
+                    // script for fourth card
+                    'import Dropdown from "@/components/rainbow/Dropdown";\n' +
                     '\n' +
                     'export default {\n' +
                     '    components: {\n' +
-                    '        ToggleButtons\n' +
+                    '        Dropdown\n' +
                     '    }   ,\n' +
                     '    data: () => {\n' +
                     '        return {\n' +
-                    '            toggleOptions: [\n' +
-                    '                { value: 1, label: "Vue"},\n' +
-                    '                { value: 2, label: "React"},\n' +
-                    '                { value: 3, label: "Angular"},\n' +
+                    '            dropdownOptions: [\n' +
+                    '                { key: 1, value: "Vue"},\n' +
+                    '                { key: 2, value: "Tailwind"},\n' +
+                    '                { key: 3, value: "Laravel"},\n' +
+                    '                { key: 4, value: "Unit Testing"},\n' +
+                    '                { key: 5, value: "Events & Queues"},\n' +
                     '            ]\n' +
                     '        }\n' +
                     '    },\n' +
@@ -141,13 +173,12 @@
                     '            window.console.log(value);\n' +
                     '        }\n' +
                     '    }\n' +
-                    '}',
+                    '}\n',
                 ]
             }
-        },
+        }
     }
 </script>
-
 <style scoped>
     .inline-code {
         @apply bg-red-300 p-1 text-white rounded;

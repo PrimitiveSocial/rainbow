@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white overflow-hidden sm:rounded-lg sm:shadow mb-12">
+    <div class="bg-white sm:rounded-lg sm:shadow mb-12">
         <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
             <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-no-wrap">
                 <div class="ml-4 mt-2">
@@ -15,19 +15,21 @@
             </div>
         </div>
 
-        <div v-show="activeSlot === 'preview'">
+        <div v-show="activeSlot === 'preview'" class="p-4">
             <slot name="preview"></slot>
         </div>
-        <div v-show="activeSlot === 'template'">
+        <div v-show="activeSlot === 'template'" class="p-4">
             <slot name="template"></slot>
         </div>
-        <div v-show="activeSlot === 'script'">
+        <div v-show="activeSlot === 'script'" class="p-4">
             <slot name="script"></slot>
         </div>
     </div>
 </template>
 
 <script>
+    import "vue-code-highlight/themes/prism-tomorrow.css";
+    import "vue-code-highlight/themes/window.css";
     export default {
         props: {
             title: {
@@ -47,3 +49,12 @@
         }
     }
 </script>
+
+<style scoped>
+    pre {
+        margin: 0;
+    }
+    code {
+        font-size: 12px;
+    }
+</style>

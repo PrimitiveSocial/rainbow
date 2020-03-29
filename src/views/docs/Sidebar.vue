@@ -39,6 +39,8 @@
             return {
                 components: [
                     {value: 'ToggleButtons', label: 'Toggle Buttons'},
+                    {value: 'Dropdown', label: 'Dropdown'},
+                    {value: 'Dropmenu', label: 'Dropmenu'},
                     {value: 'Switcher', label: 'Switcher'},
                 ]
             }
