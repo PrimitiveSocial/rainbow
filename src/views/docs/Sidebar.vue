@@ -42,6 +42,8 @@
                     {value: 'Dropdown', label: 'Dropdown'},
                     {value: 'Dropmenu', label: 'Dropmenu'},
                     {value: 'Switcher', label: 'Switcher'},
+                    {value: 'Modal', label: 'Modal'},
+                    {value: 'Uploader', label: 'Uploader'},
                 ]
             }
         }
