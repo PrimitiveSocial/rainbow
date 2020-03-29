@@ -44,7 +44,7 @@
         },
         methods: {
             activeClass(value) {
-                return (this.activeSlot === value) ? 'bg-gray-300 text-gray-600' : 'text-gray-300'
+                return (this.activeSlot === value) ? 'bg-gray-300 text-gray-600' : 'text-gray-400'
             }
         }
     }
