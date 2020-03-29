@@ -10,20 +10,21 @@
     "prod": "vue-cli-service serve --mode=production"
   },
   "dependencies": {
+    "autoprefixer": "latest",
     "core-js": "^3.4.4",
-    "tailwindcss": "^1.1.4",
+    "tailwindcss": "^1.2.0",
     "vue": "^2.6.10",
-    "vue-router": "^3.1.5",
-    "vuex": "^3.1.2",
-    "autoprefixer": "latest"
+    "vue-code-highlight": "^0.7.4",
+    "vue-router": "^3.1.6",
+    "vuex": "^3.1.3"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.0.6",
-    "@vue/cli-plugin-babel": "^4.1.0",
-    "@vue/cli-plugin-eslint": "^4.1.0",
-    "@vue/cli-plugin-unit-jest": "^4.1.2",
+    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "@vue/cli-plugin-babel": "^4.2.3",
+    "@vue/cli-plugin-eslint": "^4.2.3",
+    "@vue/cli-plugin-unit-jest": "^4.2.3",
     "@vue/cli-service": "^4.2.3",
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "vue-template-compiler": "^2.6.10"

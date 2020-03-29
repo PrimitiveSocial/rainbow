@@ -12,6 +12,11 @@ import store from "./store";
 // tailwind setup
 import "./assets/styles.css";
 
+//register the v-highlight code directive
+import VueCodeHighlight from 'vue-code-highlight';
+Vue.use(VueCodeHighlight);
+
+
 new Vue({
     router,
     store,
