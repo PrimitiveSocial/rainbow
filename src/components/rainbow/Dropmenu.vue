@@ -1,8 +1,8 @@
 <template>
     <div class="relative">
-        <span @click="toggleMenu">
+        <span @click="toggleMenu" ref="trigger">
             <slot name="trigger">
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                <svg class="h-4 w-4 inline cursor-pointer" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
                     <g>
                         <g>
                             <g class="fill-current">
@@ -16,10 +16,9 @@
             </slot>
         </span>
         <nav
-            class="drop-menu bg-white p-4 absolute rounded top-0 left-0 text-left border z-10"
-            :class="direction"
+            class="drop-menu bg-white p-4 absolute rounded top-0 text-left border z-50"
             v-show="isOpen"
-            :style="'min-width:' + minWidth"
+            :style="'min-width:' + minWidth+'rem; left:' + left + 'rem'"
         >
             <slot name="default" :close="close" />
         </nav>
@@ -27,18 +26,17 @@
 </template>
 
 <script>
-
     export default {
         props: {
             direction: {
                 type: String,
                 required: false,
-                default: 'left'
+                default: 'right'
             },
             minWidth: {
-                type: String,
+                type: Number,
                 required: false,
-                default: '13.85rem'
+                default: 13.85
             },
             closeOnOutsideClick: {
                 type: Boolean,
@@ -49,6 +47,18 @@
         data: () => {
             return {
                 isOpen: false,
+            }
+        },
+        computed: {
+            left() {
+                if(this.direction === 'right')
+                    return 0;
+                else {
+                    if (this.$refs.trigger) // bcz slot is not yet loaded
+                        return (this.$refs.trigger.offsetWidth / 16);
+                    else
+                        return -this.minWidth
+                }
             }
         },
         methods: {
@@ -76,10 +86,6 @@
 <style scoped>
     .drop-menu {
         box-shadow: 0 0.5rem 1rem rgba(222, 224, 228, 0.5);
-    }
-    .drop-menu.right {
-        right: 0;
-        left: auto;
     }
     .drop-menu.open {
         display: block;
