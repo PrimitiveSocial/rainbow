@@ -41,7 +41,7 @@
         data: () => {
             return {
                 features: [
-                    'Reactive',
+                    'reactive',
                 ],
                 libraries: [
                     { value: 1, label: 'Vue'},

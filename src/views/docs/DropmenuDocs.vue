@@ -1,7 +1,8 @@
 <template>
     <div>
-        <div class="max-w-7xl mx-auto px-4 pb-4 sm:px-6 lg:px-8">
-            <h1 class="text-2xl font-semibold text-gray-900 pb-4 border-b">Dropmenu</h1>
+        <div class="max-w-7xl mx-auto px-4 pb-4 sm:px-6 lg:px-8 flex justify-between border-b mb-8">
+            <h1 class="text-2xl font-semibold text-gray-900">Dropmenu</h1>
+            <features :options="features"></features>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
@@ -34,13 +35,6 @@
             <!-- Set direction card -->
             <card title="Direction">
                 <div slot="preview">
-                    <note>
-                        To customize the direction, use the <code class="inline-code">:direction</code> prop.
-                        <p>
-                            By default, it is set to
-                            <span class="bg-indigo-200 p-1 text-white rounded text-xs">right</span>.
-                        </p>
-                    </note>
 
                     <dropmenu :direction="'left'">
                         <div slot="default">
@@ -66,18 +60,9 @@
             </card>
 
             <!-- Set dropmenu width width -->
-            <card title="Width">
+            <card title="Width" description="The width unit is 'rem'">
                 <div slot="preview">
-                    <note>
-                        To customize the width, use the <code class="inline-code">:min-width</code> prop.
-                        <p>
-                            By default, it is set to
-                            <span class="bg-indigo-200 p-1 text-white rounded text-xs">13.85</span> and the default unit is
-                            <span class="bg-indigo-200 p-1 text-white rounded text-xs">rem</span>.
-                        </p>
-                    </note>
-
-                    <dropmenu :min-width="35">
+                    <dropmenu :min-width="25">
                         <div slot="default">
                             <h3 class="text-indigo-600 font-medium mb-2">List of courses:</h3>
                             <ul>
@@ -101,17 +86,13 @@
             </card>
 
             <!-- Customize trigger button card -->
-            <card title="Custom Trigger Button">
+            <card title="Custom trigger" description="To customize the element that opens the dropmenu, add the 'trigger' slot">
                 <div slot="preview">
-                    <note>
-                        To customize the element that opens the dropmenu, use add a <code class="inline-code">trigger</code> slot.
-                        <p>If it is not added, the three dots svg is loaded by default.</p>
-                    </note>
 
                     <dropmenu>
                         <div slot="trigger">
-                            <button class="text-white cursor-pointer bg-red-500 rounded-md p-2 focus:outline-none">
-                                Sign up now
+                            <button class="text-white cursor-pointer bg-indigo-300 text-xs rounded-md p-2 focus:outline-none">
+                                Open Menu
                             </button>
                         </div>
                         <div slot="default">
@@ -137,14 +118,8 @@
             </card>
 
             <!-- Close on click outside card -->
-            <card title="Close On Click Outside">
+            <card title="Disable close on outside click" description="To dynamically close the dropmenu, the component provides a slot-scope with close function ">
                 <div slot="preview">
-                    <note>
-                        To disabled closing the dropmenu on outside click, use add a <code class="inline-code">:close-on-outside-click</code> prop.
-                        By default, it is set to true.
-                        <p>To dynamically close the dropmenu, it provides a <code class="inline-code">close</code> slot-scope.</p>
-                    </note>
-
                     <dropmenu :close-on-outside-click="false">
                         <template slot-scope="{ close }">
                             <div slot="default">
@@ -176,15 +151,22 @@
 
 <script>
     import Card from "./Card";
-    import Note from "./Note";
+    import Features from "./Features";
     import HTMLEncoder from "./HTMLEncoder";
     import Dropmenu from "@/components/rainbow/Dropmenu";
 
     export default {
-        components: { Card , Note, Dropmenu},
+        components: { Card , Features, Dropmenu},
         mixins: [ HTMLEncoder ],
         data: () => {
             return {
+                features: [
+                    'slots',
+                    'slot-scope',
+                    'width',
+                    'direction',
+                    'outside-click'
+                ],
                 code: [
                     // template for first card
                     '<dropmenu>\n' +
@@ -215,7 +197,7 @@
                     '</dropmenu>',
 
                     // template third card
-                    '<dropmenu :min-width="35">\n' +
+                    '<dropmenu :min-width="25">\n' +
                     '    <div slot="default">\n' +
                     '        <!-- content of the menu goes here... -->\n' +
                     '    </div>\n' +
@@ -224,7 +206,7 @@
                     // template for fourth card
                     '<dropmenu>\n' +
                     '    <div slot="trigger">\n' +
-                    '        <button class="text-white cursor-pointer bg-red-500 rounded-md p-2 focus:outline-none">\n' +
+                    '        <button class="text-white cursor-pointer bg-indigo-300 text-xs rounded-md p-2 focus:outline-none">\n' +
                     '            Sign up now\n' +
                     '        </button>\n' +
                     '    </div>\n' +

@@ -60,10 +60,11 @@
         data: () => {
             return {
                 features: [
-                    'Reactive',
-                    'Placeholder',
-                    'Searchable',
-                    'Keyboard navigation'
+                    'reactive',
+                    'placeholder',
+                    'searchable',
+                    'keyboard navigation',
+                    'outside-click'
                 ],
                 topics: [
                     { key: 1, value: 'Vue' },
