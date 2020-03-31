@@ -1,11 +1,11 @@
 <template>
     <div class="flex justify-between text-center font-light text-sm rounded bg-indigo-100 overflow-hidden">
         <div
-            v-for="option in options"
-            class="cursor-pointer p-3"
-            :class="getClassList(option)"
-            :key="option.value"
-            @click="activeOptionValue = option.value"
+                v-for="option in options"
+                class="cursor-pointer p-3"
+                :class="getClassList(option)"
+                :key="option.value"
+                @click="update(option)"
         >
             {{ option.label }}
         </div>
@@ -15,14 +15,13 @@
 <script>
     export default {
         props: {
+            value: {
+                required: true
+            },
             options: {
                 type: Array,
                 required: true
             },
-            default: {
-                type: Number,
-                required: false
-            }
         },
         data: () => {
             return {
@@ -30,6 +29,10 @@
             }
         },
         methods: {
+            update(option) {
+                this.activeOptionValue = option.value;
+                this.$emit('input', this.activeOptionValue);
+            },
             getClassList(option) {
                 let _classList = [
                     'w-1/' + this.options.length
@@ -40,13 +43,8 @@
                 return _classList.join(' ');
             }
         },
-        watch: {
-            activeOptionValue() {
-                this.$emit('selected', this.activeOptionValue);
-            }
-        },
         mounted() {
-            this.activeOptionValue = this.default ? this.default : this.options[0].value;
+            this.activeOptionValue = this.value;
         }
     }
 </script>

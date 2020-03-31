@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-        <div class="w-full border p-2 rounded flex justify-between">
+        <div class="w-full border p-2 rounded flex justify-between bg-white">
             <div class="w-5/6">
                 <input
                     type="text"

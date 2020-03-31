@@ -1,9 +1,9 @@
 <template>
-    <div class="bg-white sm:rounded-lg sm:shadow mb-12">
+    <div class="bg-white shadow-md mb-12 border rounded">
         <div class="bg-white px-4 py-5 border-b border-gray-200 sm:px-6">
             <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-no-wrap">
                 <div class="ml-2 mt-2">
-                    <h3 class="text-lg leading-6 font-medium text-gray-600">
+                    <h3 class="text-lg leading-6 font-medium text-gray-800">
                         {{ title }}
                     </h3>
                 </div>
@@ -15,13 +15,13 @@
             </div>
         </div>
 
-        <div v-show="activeSlot === 'preview'" class="p-4">
+        <div v-show="activeSlot === 'preview'" class="p-6 bg-gray-100 flex items-center justify-center">
             <slot name="preview"></slot>
         </div>
-        <div v-show="activeSlot === 'template'" class="p-4">
+        <div v-show="activeSlot === 'template'" class="p-6 bg-gray-100 flex items-center justify-center">
             <slot name="template"></slot>
         </div>
-        <div v-show="activeSlot === 'script'" class="p-4">
+        <div v-show="activeSlot === 'script'" class="p-6 bg-gray-100 flex items-center justify-center">
             <slot name="script"></slot>
         </div>
     </div>
