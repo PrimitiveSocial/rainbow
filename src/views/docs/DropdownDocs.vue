@@ -1,7 +1,8 @@
 <template>
     <div>
-        <div class="max-w-7xl mx-auto px-4 pb-4 sm:px-6 lg:px-8">
-            <h1 class="text-2xl font-semibold text-gray-900 pb-4 border-b">Dropdown</h1>
+        <div class="max-w-7xl mx-auto px-4 pb-4 sm:px-6 lg:px-8 flex justify-between border-b mb-8">
+            <h1 class="text-2xl font-semibold text-gray-900">Dropdown</h1>
+            <features :options="features"></features>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
@@ -9,7 +10,7 @@
             <card title="Basic Setup">
                 <div slot="preview">
                     <div class="w-64">
-                        <dropdown :options="dropdownOptions"></dropdown>
+                        <dropdown :options="topics" v-model="topic"></dropdown>
                     </div>
                 </div>
                 <div slot="template">
@@ -24,14 +25,11 @@
                 </div>
             </card>
 
-            <!-- Set default selected option card -->
-            <card title="Default Selected Option">
+            <!-- Customization Card -->
+            <card title="Customization" description="Change placeholder text, disable search and keyboard navigation">
                 <div slot="preview">
-                    <note>
-                        To set a default selected value, use the <code class="inline-code">:default</code> prop.
-                    </note>
                     <div class="w-64">
-                        <dropdown :options="dropdownOptions" :default="4"></dropdown>
+                        <dropdown :options="topics" v-model="topic" :searchable="false" :placeholder="'Browse topics'" :with-keyboard-navigation="false"></dropdown>
                     </div>
                 </div>
                 <div slot="template">
@@ -46,81 +44,38 @@
                 </div>
             </card>
 
-            <!-- Customize placeholder card -->
-            <card title="Custom Placeholder">
-                <div slot="preview">
-                    <note>
-                        To customize the placeholder text, use the <code class="inline-code">:placeholder</code> prop.
-                    </note>
-                    <div class="w-64">
-                        <dropdown :options="dropdownOptions" :placeholder="'Pick a course'"></dropdown>
-                    </div>
-                </div>
-                <div slot="template">
-                    <div v-highlight>
-                        <pre class="language-html"><code>{{ htmlEncode(code[3]) }}</code></pre>
-                    </div>
-                </div>
-                <div slot="script">
-                    <div v-highlight>
-                        <pre class="language-javascript"><code>{{ htmlEncode(code[1]) }}</code></pre>
-                    </div>
-                </div>
-            </card>
-
-            <!-- Emit to parent card -->
-            <card title="Emit value">
-                <div slot="preview">
-                    <note>
-                        To send the selected value back to the parent component, the component emits a <code class="inline-code">@selected</code>
-                        event with the value as payload.
-                    </note>
-                    <div class="w-64">
-                        <dropdown :options="dropdownOptions" @selected="log"></dropdown>
-                    </div>
-                </div>
-                <div slot="template">
-                    <div v-highlight>
-                        <pre class="language-html"><code>{{ htmlEncode(code[4]) }}</code></pre>
-                    </div>
-                </div>
-                <div slot="script">
-                    <div v-highlight>
-                        <pre class="language-javascript"><code>{{ htmlEncode(code[5]) }}</code></pre>
-                    </div>
-                </div>
-            </card>
-
         </div>
     </div>
 </template>
 
 <script>
     import Card from "./Card";
-    import Note from "./Note";
+    import Features from "./Features";
     import HTMLEncoder from "./HTMLEncoder";
     import Dropdown from "@/components/rainbow/Dropdown";
 
     export default {
-        components: { Card, Note, Dropdown },
+        components: { Card, Features, Dropdown },
         mixins: [ HTMLEncoder],
-        methods: {
-            log(payload) {
-                window.console.log(payload);
-            }
-        },
         data: () => {
             return {
-                dropdownOptions: [
+                features: [
+                    'Reactive',
+                    'Placeholder',
+                    'Searchable',
+                    'Keyboard navigation'
+                ],
+                topics: [
                     { key: 1, value: 'Vue' },
                     { key: 2, value: 'Tailwind'},
                     { key: 3, value: 'Laravel'},
                     { key: 4, value: 'Unit Testing'},
                     { key: 5, value: 'Events & Queues'},
                 ],
+                topic: null,
                 code: [
                     // template for first card
-                    '<dropdown :options="dropdownOptions"></dropdown>\n',
+                    '<dropdown :options="topics" v-model="topic"></dropdown>\n',
 
                     // script for first, second and third card
                     'import Dropdown from "@/components/rainbow/Dropdown";\n' +
@@ -131,50 +86,26 @@
                     '    }   ,\n' +
                     '    data: () => {\n' +
                     '        return {\n' +
-                    '            dropdownOptions: [\n' +
+                    '            topics: [\n' +
                     '                { key: 1, value: "Vue"},\n' +
                     '                { key: 2, value: "Tailwind"},\n' +
                     '                { key: 3, value: "Laravel"},\n' +
                     '                { key: 4, value: "Unit Testing"},\n' +
                     '                { key: 5, value: "Events & Queues"},\n' +
                     '            ]\n' +
-                    '        }\n' +
+                    '        },\n' +
+                    '        topic: null,\n' +
                     '    },\n' +
                     '}\n',
 
                     // template for second card
-                    '<dropdown :options="dropdownOptions" :default="4"></dropdown>\n',
-
-                    // template for third card
-                    '<dropdown :options="dropdownOptions" :placehoder="\'Pick a course\'"></dropdown>\n',
-
-                    // template for fourth card
-                    '<dropdown :options="dropdownOptions" @selected="log"></dropdown>\n',
-
-                    // script for fourth card
-                    'import Dropdown from "@/components/rainbow/Dropdown";\n' +
-                    '\n' +
-                    'export default {\n' +
-                    '    components: {\n' +
-                    '        Dropdown\n' +
-                    '    }   ,\n' +
-                    '    data: () => {\n' +
-                    '        return {\n' +
-                    '            dropdownOptions: [\n' +
-                    '                { key: 1, value: "Vue"},\n' +
-                    '                { key: 2, value: "Tailwind"},\n' +
-                    '                { key: 3, value: "Laravel"},\n' +
-                    '                { key: 4, value: "Unit Testing"},\n' +
-                    '                { key: 5, value: "Events & Queues"},\n' +
-                    '            ]\n' +
-                    '        }\n' +
-                    '    },\n' +
-                    '    methods: {\n' +
-                    '        log(value) {\n' +
-                    '            window.console.log(value);\n' +
-                    '        }\n' +
-                    '    }\n' +
-                    '}\n',
+                    '<dropdown\n' +
+                    '    :options="topics"\n' +
+                    '    v-model="topic"\n' +
+                    '    :searchable="false"\n' +
+                    '    :with-keyboard-navigation="false"\n' +
+                    '    :placeholder="\'Browse Topics\'"\n' +
+                    '></dropdown>\n',
                 ]
             }
         }

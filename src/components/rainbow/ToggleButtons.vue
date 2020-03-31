@@ -1,11 +1,11 @@
 <template>
     <div class="flex justify-between text-center font-light text-sm rounded bg-indigo-100 overflow-hidden">
         <div
-                v-for="option in options"
-                class="cursor-pointer p-3"
-                :class="getClassList(option)"
-                :key="option.value"
-                @click="update(option)"
+            v-for="option in options"
+            class="cursor-pointer p-3"
+            :class="getClassList(option)"
+            :key="option.value"
+            @click="update(option)"
         >
             {{ option.label }}
         </div>

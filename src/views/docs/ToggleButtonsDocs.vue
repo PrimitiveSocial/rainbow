@@ -1,13 +1,10 @@
 <template>
     <div>
-        <div class="max-w-7xl mx-auto px-4 pb-4 sm:px-6 lg:px-8">
-            <h1 class="text-2xl font-semibold text-gray-900 pb-4 border-b">Toggle Buttons</h1>
+        <div class="max-w-7xl mx-auto px-4 pb-4 sm:px-6 lg:px-8 flex justify-between border-b mb-8">
+            <h1 class="text-2xl font-semibold text-gray-900">Toggle Buttons</h1>
+            <features :options="features"></features>
         </div>
-        <div class="max-w-7xl mx-auto px-4 pb-4 sm:px-6 lg:px-8">
-            <note>
-                This component has a two-way data binding with <span class="inline-code">v-model</span>.
-            </note>
-        </div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <!-- Basic setup card -->
             <card title="Setup">
@@ -34,15 +31,18 @@
 
 <script>
     import Card from "./Card";
-    import Note from "./Note";
+    import Features from "./Features";
     import HTMLEncoder from "./HTMLEncoder";
     import ToggleButtons from "@/components/rainbow/ToggleButtons";
 
     export default {
-        components: { ToggleButtons, Card, Note },
+        components: { ToggleButtons, Features, Card },
         mixins: [ HTMLEncoder],
         data: () => {
             return {
+                features: [
+                    'Reactive',
+                ],
                 libraries: [
                     { value: 1, label: 'Vue'},
                     { value: 2, label: 'React'},
