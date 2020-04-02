@@ -44,6 +44,8 @@
                     {value: 'Switcher', label: 'Switcher'},
                     {value: 'Modal', label: 'Modal'},
                     {value: 'Uploader', label: 'Uploader'},
+                    {value: 'Sortable', label: 'Sortable'},
+                    {value: 'TagInput', label: 'TagInput'},
                 ]
             }
         }
