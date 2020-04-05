@@ -56,10 +56,11 @@
                     'export default {\n' +
                     '    components: {\n' +
                     '        Switcher\n' +
-                    '    }   ,\n' +
+                    '    },\n' +
                     '    data: () => {\n' +
-                    '             isPublished: false,\n', +
-                        '        }\n' +
+                    '        return {\n' +
+                    '            isPublished: false,\n' +
+                    '        }\n' +
                     '    },\n' +
                     '}\n',
                 ]

@@ -67,7 +67,7 @@
                     '                { value: 2, label: "React"},\n' +
                     '                { value: 3, label: "Angular"},\n' +
                     '            ],\n' +
-                    '             library: 1,\n', +
+                    '             library: 1,\n' +
                     '        }\n' +
                     '    },\n' +
                     '}\n',
