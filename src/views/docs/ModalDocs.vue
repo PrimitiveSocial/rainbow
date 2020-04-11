@@ -10,10 +10,18 @@
             <card title="Setup">
                 <div slot="preview">
                     <div class="w-64">
-                        <p class="text-black text-xs mb-2 font-bold" @click="$modal.open('courses')">Open Modal:</p>
-                        <modal name="courses" size="small" :with-close-icon="false">
-                            <div>Rainbow Modal</div>
-                            <button @click="$modal.close('courses')">Close</button>
+                        <button
+                            class="px-4 py-2 bg-indigo-300 text-white rounded outline-none text-xs"
+                            @click="$modal.open('courses')"
+                        >
+                            Open Modal
+                        </button>
+                        <modal name="courses">
+                            <div slot="default">
+                                <!-- Content starts here -->
+                                <div class="p-5 text-xl text-black capitalize font-bold pb-4 border-b">My modal</div>
+                                <!-- Content starts here -->
+                            </div>
                         </modal>
                     </div>
                 </div>
@@ -29,6 +37,72 @@
                 </div>
             </card>
 
+            <!-- Customization Card -->
+            <card title="Customization" description="Change size, remove close icon and background">
+                <div slot="preview">
+                    <div class="w-64">
+                        <button
+                            class="px-4 py-2 bg-indigo-300 text-white rounded outline-none text-xs"
+                            @click="$modal.open('courses-custom')"
+                        >
+                            Open Modal
+                        </button>
+                        <modal
+                            name="courses-custom"
+                            size="large"
+                            :with-close-icon="false"
+                            :transparent-bg="true"
+                        >
+                            <div slot="default">
+                                <!-- Content starts here -->
+                                <div class="p-5 text-xl text-black capitalize font-bold pb-4 border-b">My custom modal</div>
+                                <button @click="$modal.close('courses-custom' )" class="px-4 py-2 bg-red-300 rounded m-3">Close</button>
+                                <!-- Content starts here -->
+                            </div>
+                        </modal>
+                    </div>
+                </div>
+                <div slot="template">
+                    <div v-highlight>
+                        <pre class="language-html"><code>{{ htmlEncode(code[2]) }}</code></pre>
+                    </div>
+                </div>
+                <div slot="script">
+                    <div v-highlight>
+                        <pre class="language-javascript"><code>{{ htmlEncode(code[1]) }}</code></pre>
+                    </div>
+                </div>
+            </card>
+
+            <!-- Passing parameters -->
+            <card title="Passing parameters"  description="Access the params using the slot-scope provided by the component">
+                <div slot="preview">
+                    <div class="w-64">
+                        <button
+                            class="px-4 py-2 bg-indigo-300 text-white rounded outline-none text-xs"
+                            @click="$modal.open('params-modal', { js: 'Vue', css: 'Tailwind'})"
+                        >
+                            Open Modal
+                        </button>
+                        <modal name="params-modal">
+                            <div slot-scope="{ params }">
+                                <p>Javascript Framework: {{ params.js }}</p>
+                                <p>CSS Framework: {{ params.css }}</p>
+                            </div>
+                        </modal>
+                    </div>
+                </div>
+                <div slot="template">
+                    <div v-highlight>
+                        <pre class="language-html"><code>{{ htmlEncode(code[3]) }}</code></pre>
+                    </div>
+                </div>
+                <div slot="script">
+                    <div v-highlight>
+                        <pre class="language-javascript"><code>{{ htmlEncode(code[1]) }}</code></pre>
+                    </div>
+                </div>
+            </card>
         </div>
     </div>
 </template>
@@ -46,25 +120,57 @@
             return {
                 features: [
                     'Slot',
+                    'slot-scope',
+                    'Size',
+                    'Close',
+                    'Params'
                 ],
                 code: [
                     // template for first card
-                    '<p class="text-black text-xs mb-2 font-bold">Set as homepage:</p>\n' +
-                    '<swicther v-model="isPublished"></swicther>\n',
+                    '<button @click="$modal.open(\'my-modal\')">Open Modal</button>\n\n' +
+                    '<modal name="my-modal">\n' +
+                    '    <div slot="default">\n' +
+                    '        <!-- Content starts here -->\n' +
+                    '        <div class="p-5 text-xl text-black capitalize font-bold pb-4 border-b">Courses modal</div>\n' +
+                    '        <!-- Content ends here -->\n' +
+                    '    </div>\n' +
+                    '</modal>',
 
-                    // script for first card
-                    'import Switcher from "@/components/rainbow/Switcher";\n' +
+                    // script for all card
+                    'import Modal from "@/components/rainbow/Modal";\n' +
                     '\n' +
                     'export default {\n' +
                     '    components: {\n' +
-                    '        Switcher\n' +
-                    '    },\n' +
-                    '    data: () => {\n' +
-                    '        return {\n' +
-                    '            isPublished: false,\n' +
-                    '        }\n' +
+                    '        Modal\n' +
                     '    },\n' +
                     '}\n',
+
+                    // template for second card
+                    '<modal \n' +
+                    '    name="my-custom-modal" \n' +
+                    '    size="large" \n' +
+                    '    :with-close-icon="false" \n' +
+                    '    :transparent-bg="true"\n' +
+                    '>\n\n' +
+                    '<modal name="my-custom-modal" size="large">\n' +
+                    '    <div slot="default">\n' +
+                    '        <!-- Content -->\n' +
+                    '        <button @click="$modal.close(\'courses-custom\' )">Close</button>\n'+
+                    '    </div>\n' +
+                    '</modal>',
+
+                    // template for third card
+                    ' <button\n' +
+                    '     @click="$modal.open(\'my-modal\', { js: \'Vue\', css: \'Tailwind\'})"\n' +
+                    '>\n' +
+                    'Open Modal\n' +
+                    '</button>\n\n' +
+                    '<modal name="my-modal">\n' +
+                    '    <div slot-scope="{ params }">\n' +
+                    '        <p>Javascript Framework: {{ params.js }}</p>\n' +
+                    '        <p>CSS Framework: {{ params.css }}</p>\n' +
+                    '    </div>\n' +
+                    '</modal>'
                 ]
             }
         },

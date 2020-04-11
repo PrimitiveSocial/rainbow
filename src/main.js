@@ -17,8 +17,8 @@ window.EventBus = new Vue();
 
 // Modal prototype
 Vue.prototype.$modal = {
-    open(name) {
-        window.EventBus.$emit('open-modal', {name: name});
+    open(name, params) {
+        window.EventBus.$emit('open-modal', {name: name, params: params});
     },
     close(name) {
         window.EventBus.$emit('hide-modal', {name: name});

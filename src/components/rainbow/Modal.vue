@@ -25,7 +25,7 @@
             </svg>
 
             <div class="w-full h-full overflow-scroll">
-                <slot/>
+                <slot :params="params"/>
             </div>
         </div>
     </div>
@@ -56,7 +56,8 @@
         },
         data: () => {
             return {
-                isOpen: false
+                isOpen: false,
+                params: {}
             }
         },
         computed: {
@@ -87,6 +88,7 @@
             window.EventBus.$on('open-modal', (payload) => {
                 if (payload && payload.name && payload.name === this.name) {
                     this.isOpen = true;
+                    this.params = payload.params;
                 }
             });
 
