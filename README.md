@@ -23,18 +23,5 @@ npm install
 - **store:** Contains the store namespaced modules.
 
 
-## Todo
-- buttons
-- toggle buttons --ok
-- Switcher
-- Dropdown
-- Dropmenu
-- Icons
-- Modal
-- Uploader
-- click-outside directive
-- utils/Event bus
-- docs
-
 production use:
 remove view/docs directory and router/docs.js

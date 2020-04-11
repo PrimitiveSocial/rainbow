@@ -2,8 +2,8 @@
     <div class="hidden md:flex md:flex-shrink-0">
         <div class="flex flex-col w-64 bg-gray-800">
             <div class="h-0 flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
-                <div class="flex items-center flex-shrink-0 px-4 text-white">
-                    Components
+                <div class="flex items-center flex-shrink-0 px-4 text-white uppercase font-bold">
+                    <router-link :to="{name: 'home'}">Rainbow</router-link>
                 </div>
 
                 <nav class="mt-5 flex-1 px-2 bg-gray-800">

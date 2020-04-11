@@ -84,7 +84,7 @@
                     'export default {\n' +
                     '    components: {\n' +
                     '        Dropdown\n' +
-                    '    }   ,\n' +
+                    '    },\n' +
                     '    data: () => {\n' +
                     '        return {\n' +
                     '            topics: [\n' +
