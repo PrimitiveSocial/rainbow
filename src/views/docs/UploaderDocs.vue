@@ -11,8 +11,8 @@
                 <div slot="preview">
                     <div class="w-64">
                         <uploader @photos-uploaded="showPhotos" :aspect-ratio="16/9"></uploader>
-                        <div class="mt-4 flex flex-wrap">
-                            <img v-for="(photo,index) in photos" :key="index" :src="photo.base64" class="mr-2 h-24 w-24" />
+                        <div class="mt-4 flex">
+                            <img v-for="(photo,index) in photos" :key="index" :src="photo.base64" class="mr-2 h-24 inline-block" />
                         </div>
                     </div>
                 </div>

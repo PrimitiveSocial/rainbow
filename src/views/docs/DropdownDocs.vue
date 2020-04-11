@@ -76,7 +76,7 @@
                 topic: null,
                 code: [
                     // template for first card
-                    '<dropdown :options="topics" v-model="topic"></dropdown>\n',
+                    '<dropdown v-model="topic" :options="topics" ></dropdown>\n',
 
                     // script for first, second and third card
                     'import Dropdown from "@/components/rainbow/Dropdown";\n' +
@@ -101,8 +101,8 @@
 
                     // template for second card
                     '<dropdown\n' +
-                    '    :options="topics"\n' +
                     '    v-model="topic"\n' +
+                    '    :options="topics"\n' +
                     '    :searchable="false"\n' +
                     '    :with-keyboard-navigation="false"\n' +
                     '    :placeholder="\'Browse Topics\'"\n' +
