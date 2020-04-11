@@ -13,7 +13,7 @@
             </vue-cropper>
         </div>
         <div class="ml-4">
-            <button class="btn-primary text-xs mb-4 block" @click="crop()">
+            <button class="text-xs mb-4 block focus:outline-none" @click="crop()">
                 <svg class="h-4 w-4 inline" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g class="fill-current">
@@ -22,7 +22,7 @@
                     </g>
                 </svg>
             </button>
-            <button class="btn-primary text-xs mb-4 block" @click="zoom(0.2)">
+            <button class="text-xs mb-4 block focus:outline-none" @click="zoom(0.2)">
                 <svg class="h-4 w-4 inline" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g class="fill-current">
@@ -31,7 +31,7 @@
                     </g>
                 </svg>
             </button>
-            <button class="btn-primary text-xs mb-4 block" @click="zoom(-0.2)">
+            <button class="btn-primary text-xs mb-4 block focus:outline-none" @click="zoom(-0.2)">
                 <svg class="h-4 w-4 inline" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g class="fill-current">
@@ -40,7 +40,7 @@
                     </g>
                 </svg>
             </button>
-            <button class="btn-primary text-xs mb-4 block" @click="rotate(45)">
+            <button class="btn-primary text-xs mb-4 block focus:outline-none" @click="rotate(45)">
                 <svg class="h-4 w-4 inline" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g class="fill-current">
@@ -49,7 +49,7 @@
                     </g>
                 </svg>
             </button>
-            <button class="btn-primary text-xs mb-4 block" @click="reset()">
+            <button class="btn-primary text-xs mb-4 block focus:outline-none" @click="reset()">
                 <svg class="h-4 w-4 inline" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g class="fill-current">

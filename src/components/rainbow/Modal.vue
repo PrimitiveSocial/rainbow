@@ -5,7 +5,8 @@
         v-show="isOpen"
     >
         <div
-            class="bg-white relative min-h-1/4 h-auto"
+            class="bg-white relative min-h-1/4 h-auto overflow-scroll"
+            style="max-height: 80%"
             :class="sizeClass"
         >
             <svg
