@@ -83,7 +83,7 @@
         mixins: [ HTMLEncoder ],
         data: () => {
             return {
-                code: 'git clone git@github.com:PrimitiveSocial/PrimitiveSocial/rainbow.git\nrm -rf .git\nnpm install\nnpm run serve'
+                code: 'git clone git@github.com:PrimitiveSocial/rainbow.git\nrm -rf .git\nnpm install\nnpm run serve'
             }
         }
     }
