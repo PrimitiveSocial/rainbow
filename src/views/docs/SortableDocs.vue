@@ -9,7 +9,8 @@
             <!-- Basic setup card -->
             <card title="Setup">
                 <div slot="preview">
-                    <div class="w-full">
+                    <div class="w-64">
+                        <p class="font-semibold mb-5">Drag the list item to sort it</p>
                         <sortable-list v-model="todos">
                             <ul slot-scope="{ items }">
                                 <sortable-item v-for="todo in items" :key="todo.id">
@@ -44,8 +45,8 @@
     import Features from "./Features";
     import HTMLEncoder from "./HTMLEncoder";
     import SortableList from "@/components/rainbow/sortable/SortableList";
-    import SortableItem from "../../components/rainbow/sortable/SortableItem";
-    import SortableHandle from "../../components/rainbow/sortable/SortableHandle";
+    import SortableItem from "@/components/rainbow/sortable/SortableItem";
+    import SortableHandle from "@/components/rainbow/sortable/SortableHandle";
 
     export default {
         components: { SortableList, SortableItem, SortableHandle, Features, Card },
@@ -67,19 +68,34 @@
                 ],
                 code: [
                     // template for first card
-                    '<p class="text-black text-xs mb-2 font-bold">Set as homepage:</p>\n' +
-                    '<swicther v-model="isPublished"></swicther>\n',
+                    '<sortable-list v-model="todos">\n' +
+                    '    <ul slot-scope="{ items }">\n' +
+                    '        <sortable-item v-for="todo in items" :key="todo.id">\n' +
+                    '            <sortable-handle>\n' +
+                    '                <li>{{ todo.description }}</li>\n' +
+                    '            </sortable-handle>\n' +
+                    '        </sortable-item>\n' +
+                    '    </ul>\n' +
+                    '</sortable-list>',
 
                     // script for first card
-                    'import Switcher from "@/components/rainbow/Switcher";\n' +
+                    'import SortableList from "@/components/rainbow/sortable/SortableList";\n' +
+                    'import SortableItem from "@/components/rainbow/sortable/SortableItem";\n' +
+                    'import SortableHandle from "@/components/rainbow/sortable/SortableHandle";\n' +
                     '\n' +
                     'export default {\n' +
                     '    components: {\n' +
-                    '        Switcher\n' +
+                    '        SortableList, SortableItem, SortableHandle\n' +
                     '    },\n' +
                     '    data: () => {\n' +
                     '        return {\n' +
-                    '            isPublished: false,\n' +
+                    '            todos: [\n' +
+                    '                    { id: 1, description: "Setup Github actions" },\n' +
+                    '                    { id: 2, description: "Style with Tailwind" },\n' +
+                    '                    { id: 3, description: "Install primitive packages" },\n' +
+                    '                    { id: 4, description: "Update documentation" },\n' +
+                    '                    { id: 5, description: "Watch Laracon videos" },\n' +
+                    '                ],\n' +
                     '        }\n' +
                     '    },\n' +
                     '}\n',
