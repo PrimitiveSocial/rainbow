@@ -47,9 +47,9 @@
 
         <div class="bg-gray-200 py-10">
             <h3 class="text-center mb-10 text-3xl text-purple-500 font-thin uppercase">Installation</h3>
-            <div class="mx-auto w-2/3">
+            <div class="mx-auto w-1/2">
                 <div v-highlight>
-                    <pre class="language-bash"><code>{{ htmlEncode(code) }}</code></pre>
+                    <pre class="lang-bash w-full text-xs"><code>{{ code }}</code></pre>
                 </div>
             </div>
         </div>
@@ -59,7 +59,7 @@
                 Handcrafted Vue/Tailwind components to help you create amazing spas.
                 <router-link :to="{name: 'docs'}">
                     <button class="bg-green-500 rounded-md text-white px-6 py-4 mt-10 text-lg focus:outline-none">
-                        Browse the docs
+                        Browse components
                         <svg class="h-4 w-4 inline" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g class="fill-current">
@@ -77,10 +77,8 @@
 <script>
     import "vue-code-highlight/themes/prism-tomorrow.css";
     import "vue-code-highlight/themes/window.css";
-    import HTMLEncoder from "../docs/HTMLEncoder";
 
     export default {
-        mixins: [ HTMLEncoder ],
         data: () => {
             return {
                 code: 'git clone git@github.com:PrimitiveSocial/rainbow.git\nrm -rf .git\nnpm install\nnpm run serve'
