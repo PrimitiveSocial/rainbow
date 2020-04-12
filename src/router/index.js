@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from "@/store";
+import Kernel from "@primitivesocial/ps-kernel";
 
 Vue.use(VueRouter);
 
@@ -30,6 +32,11 @@ files.keys().map((key) => {
 const router = new VueRouter({
     routes: routes,
     mode: 'history'
+});
+
+router.beforeEach((to, from, next) => {
+    let kernel = new Kernel(to, next, store);
+    kernel.run();
 });
 
 export default router;
