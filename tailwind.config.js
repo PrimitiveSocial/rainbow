@@ -29,7 +29,13 @@ module.exports = {
             '1/2': '50%',
             '3/4': '75%',
             'full': '100%',
-        }
+        },
+
+        // Customize font families
+        fontFamily: {
+            'roboto': ['Roboto', 'sans-serif'],
+            'lato': ['Lato', 'sans-serif'],
+        },
     },
     variants: {},
     plugins: []

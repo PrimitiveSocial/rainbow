@@ -1,30 +1,29 @@
 <template>
     <div>
-    <note>
-        <div>
-            <p>These components provide functionality with minimum design.</p>
-            <p>However, you can still customize their style from the source in <code class="text-xs">src/components/rainbow</code></p>
-        </div>
-    </note>
-    <div class="h-screen flex overflow-hidden bg-white">
-        <sidebar
-            :selected="activeNav"
-            @active-nav="setActiveNav"
-        >
-        </sidebar>
+        <div class="h-screen flex overflow-hidden bg-white">
+            <sidebar
+                :selected="activeNav"
+                @active-nav="setActiveNav"
+            >
+            </sidebar>
 
-        <div class="flex flex-col w-0 flex-1 overflow-hidden">
-            <main class="flex-1 relative z-0 overflow-y-scroll pt-2 pb-6 focus:outline-none md:py-6" tabindex="0">
-                <toggle-buttons-docs v-if="activeNav === 'ToggleButtons'"></toggle-buttons-docs>
-                <dropdown-docs v-if="activeNav === 'Dropdown'"></dropdown-docs>
-                <dropmenu-docs v-if="activeNav === 'Dropmenu'"></dropmenu-docs>
-                <switcher-docs v-if="activeNav === 'Switcher'"></switcher-docs>
-                <modal-docs v-if="activeNav === 'Modal'"></modal-docs>
-                <uploader-docs v-if="activeNav === 'Uploader'"></uploader-docs>
-                <sortable-docs v-if="activeNav === 'Sortable'"></sortable-docs>
-            </main>
+            <div class="flex flex-col w-0 flex-1 overflow-hidden">
+                <main class="flex-1 relative z-0 overflow-y-scroll pt-2 pb-6 focus:outline-none md:py-6" tabindex="0">
+                    <dropmenu-docs v-if="activeNav === 'Dropmenu'"></dropmenu-docs>
+                    <dropdown-docs v-if="activeNav === 'Dropdown'"></dropdown-docs>
+                    <modal-docs v-if="activeNav === 'Modal'"></modal-docs>
+                    <sortable-docs v-if="activeNav === 'Sortable'"></sortable-docs>
+                    <switcher-docs v-if="activeNav === 'Switcher'"></switcher-docs>
+                    <toggle-buttons-docs v-if="activeNav === 'ToggleButtons'"></toggle-buttons-docs>
+                    <uploader-docs v-if="activeNav === 'Uploader'"></uploader-docs>
+                </main>
+            </div>
         </div>
-    </div>
+        <note class="absolute bottom-0 w-full">
+            <div>
+                <p>These components provide functionality with minimum design.However, you can still customize their style from the source in <code class="text-xs">src/components/rainbow</code></p>
+            </div>
+        </note>
     </div>
 </template>
 
@@ -43,7 +42,7 @@
         components: { Sidebar, ToggleButtonsDocs, DropdownDocs, DropmenuDocs, SwitcherDocs, ModalDocs, UploaderDocs, SortableDocs, Note },
         data: () => {
             return {
-                activeNav: 'ToggleButtons',
+                activeNav: 'Dropmenu',
             }
         },
         methods: {

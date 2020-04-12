@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full font-sans">
+    <div class="w-full">
         <div class="flex justify-between px-10 pt-20 bg-purple-500">
             <div class="text-4xl lg:text-5xl leading-tight font-light w-3/5">
                 <p class="text-gray-200">SPA starter-kit with</p>
@@ -11,7 +11,7 @@
         </div>
 
         <div class="py-10 h-full ">
-            <h3 class="text-center text-3xl text-purple-500 font-thin uppercase">Stack</h3>
+            <h3 class="text-center text-3xl text-purple-500 font-thin uppercase font-medium">Stack</h3>
             <p class="text-gray-600 text-lg w-1/2 text-center mb-10 mx-auto ">
                 Zero configuration. Everything is already done for you.
             </p>
@@ -41,7 +41,7 @@
                 <div class="w-1/3">
                     <p class="text-lg leading-6 font-medium text-gray-900 uppercase">primitive</p>
                     <p class="mt-2 text-base leading-6 text-gray-400">
-                        handy packages from
+                        Handy packages from
                         <a href="https://www.npmjs.com/search?q=primitivesocial" target="_blank" class="text-blue-500">@primitivesocial</a>
                     </p>
                 </div>
@@ -49,7 +49,7 @@
         </div>
 
         <div class="bg-gray-200 py-10">
-            <h3 class="text-center mb-10 text-3xl text-purple-500 font-thin uppercase">Installation</h3>
+            <h3 class="text-center mb-10 text-3xl text-purple-500 font-thin uppercase font-medium">Installation</h3>
             <div class="mx-auto w-1/2">
                 <div v-highlight>
                     <pre class="lang-bash w-full text-xs"><code>{{ code }}</code></pre>
@@ -57,11 +57,11 @@
             </div>
         </div>
         <div class="bg-white py-10">
-            <h3 class="text-center text-3xl text-purple-500 font-thin uppercase">Rainbow</h3>
+            <h3 class="text-center text-3xl text-purple-500 font-thin uppercase font-medium">Rainbow</h3>
             <p class="text-gray-600 text-lg w-1/2 text-center mx-auto">
                 Handcrafted Vue/Tailwind components to help you create amazing spas.
                 <router-link :to="{name: 'docs'}">
-                    <button class="bg-green-500 rounded-md text-white px-6 py-4 mt-10 text-lg focus:outline-none">
+                    <button class="bg-green-400 rounded-md text-white px-12 py-6 mt-10 text-lg focus:outline-none">
                         Browse components
                         <svg class="h-4 w-4 inline" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -74,6 +74,32 @@
                 </router-link>
             </p>
         </div>
+        <div class="bg-orange-100 py-10">
+            <h3 class="text-center text-3xl text-purple-500 font-thin uppercase font-medium">Primitive packages</h3>
+            <p class="text-gray-600 text-lg w-1/2 text-center mx-auto">
+                NPM packages from primitive social to speed up your development.
+            </p>
+            <div class="bg-white shadow overflow-hidden sm:rounded-md mt-10 w-1/2 mx-auto">
+                <ul>
+                    <li v-for="(p,index) in primitivePackages" :key="index" class="border-t border-gray-200">
+                        <div class="flex justify-between items-center">
+                            <div class="p-4">
+                                <p class="font-medium">{{ p.name }}</p>
+                                <p class="text-gray-600 lowercase">{{ p.description }}</p>
+                            </div>
+                            <div class="p-4 text-blue-700 font-medium">
+                                <a :href="p.link" target="_blank">
+                                    Repository
+                                    <svg class="h-5 w-5 inline" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -84,7 +110,11 @@
     export default {
         data: () => {
             return {
-                code: 'git clone git@github.com:PrimitiveSocial/rainbow.git\nrm -rf .git\nnpm install\nnpm run serve'
+                code: 'git clone git@github.com:PrimitiveSocial/rainbow.git\nrm -rf .git\nnpm install\nnpm run serve',
+                primitivePackages: [
+                    { name: '@primitivesocial/ps-validation', link: 'https://github.com/PrimitiveSocial/ps-validation', description: 'Out of the box Vue data validation rules.'},
+                    { name: '@primitivesocial/ps-kernel', link: 'https://github.com/PrimitiveSocial/ps-kernel', description: 'middleware system for Vue-router and Vuex'},
+                ]
             }
         }
     }

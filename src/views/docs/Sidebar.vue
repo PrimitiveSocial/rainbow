@@ -38,13 +38,13 @@
         data: () => {
             return {
                 components: [
-                    {value: 'ToggleButtons', label: 'Toggle Buttons'},
-                    {value: 'Dropdown', label: 'Dropdown'},
                     {value: 'Dropmenu', label: 'Dropmenu'},
-                    {value: 'Switcher', label: 'Switcher'},
+                    {value: 'Dropdown', label: 'Dropdown'},
                     {value: 'Modal', label: 'Modal'},
-                    {value: 'Uploader', label: 'Uploader'},
                     {value: 'Sortable', label: 'Sortable'},
+                    {value: 'Switcher', label: 'Switcher'},
+                    {value: 'ToggleButtons', label: 'Toggle Buttons'},
+                    {value: 'Uploader', label: 'Uploader'},
                 ]
             }
         }
