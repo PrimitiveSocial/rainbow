@@ -1,18 +1,18 @@
 <template>
     <div class="w-full font-sans">
         <div class="flex justify-between px-10 pt-20 bg-purple-500">
-                <div class="text-4xl lg:text-5xl leading-tight font-light w-3/5">
-                    <p class="text-gray-200">SPA starter-kit with</p>
-                    <p class="font-bold text-white">Vue & Tailwind components</p>
-                </div>
-                <div class="w-2/5 mt-20">
-                    <img src="@/assets/script.png"  />
-                </div>
+            <div class="text-4xl lg:text-5xl leading-tight font-light w-3/5">
+                <p class="text-gray-200">SPA starter-kit with</p>
+                <p class="font-bold text-white">Vue & Tailwind components</p>
+            </div>
+            <div class="w-2/5 mt-20">
+                <img src="@/assets/script.png"  />
+            </div>
         </div>
 
         <div class="py-10 h-full ">
             <h3 class="text-center text-3xl text-purple-500 font-thin uppercase">Stack</h3>
-            <p class="text-gray-700 text-lg w-1/2 text-center mb-10 mx-auto ">
+            <p class="text-gray-600 text-lg w-1/2 text-center mb-10 mx-auto ">
                 Zero configuration. Everything is already done for you.
             </p>
             <div class="flex text-center">
@@ -39,8 +39,11 @@
                     <p class="mt-2 text-base leading-6 text-gray-400">JavaScript testing framework</p>
                 </div>
                 <div class="w-1/3">
-                    <p class="text-lg leading-6 font-medium text-gray-900 uppercase">PurgeCSS</p>
-                    <p class="mt-2 text-base leading-6 text-gray-400">Remove unused CSS & minify production build</p>
+                    <p class="text-lg leading-6 font-medium text-gray-900 uppercase">primitive</p>
+                    <p class="mt-2 text-base leading-6 text-gray-400">
+                        handy packages from
+                        <a href="https://www.npmjs.com/search?q=primitivesocial" target="_blank" class="text-blue-500">@primitivesocial</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -55,7 +58,7 @@
         </div>
         <div class="bg-white py-10">
             <h3 class="text-center text-3xl text-purple-500 font-thin uppercase">Rainbow</h3>
-            <p class="text-gray-700 text-lg w-1/2 text-center mx-auto">
+            <p class="text-gray-600 text-lg w-1/2 text-center mx-auto">
                 Handcrafted Vue/Tailwind components to help you create amazing spas.
                 <router-link :to="{name: 'docs'}">
                     <button class="bg-green-500 rounded-md text-white px-6 py-4 mt-10 text-lg focus:outline-none">

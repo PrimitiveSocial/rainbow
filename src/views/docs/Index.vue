@@ -1,4 +1,11 @@
 <template>
+    <div>
+    <note>
+        <div>
+            <p>These components provide functionality with minimum design.</p>
+            <p>However, you can still customize their style from the source in <code class="text-xs">src/components/rainbow</code></p>
+        </div>
+    </note>
     <div class="h-screen flex overflow-hidden bg-white">
         <sidebar
             :selected="activeNav"
@@ -18,6 +25,7 @@
             </main>
         </div>
     </div>
+    </div>
 </template>
 
 <script>
@@ -29,9 +37,10 @@
     import ToggleButtonsDocs from "./ToggleButtonsDocs";
     import UploaderDocs from "./UploaderDocs";
     import SortableDocs from "./SortableDocs";
+    import Note from "./Note";
 
     export default {
-        components: { Sidebar, ToggleButtonsDocs, DropdownDocs, DropmenuDocs, SwitcherDocs, ModalDocs, UploaderDocs, SortableDocs },
+        components: { Sidebar, ToggleButtonsDocs, DropdownDocs, DropmenuDocs, SwitcherDocs, ModalDocs, UploaderDocs, SortableDocs, Note },
         data: () => {
             return {
                 activeNav: 'ToggleButtons',
