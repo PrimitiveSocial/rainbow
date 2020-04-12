@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="flex justify-end items-center">
-            <span class="text-gray-500 text-xs underline">Features:</span>
             <div
                 v-for="(option,index) in options"
                 :key="index"

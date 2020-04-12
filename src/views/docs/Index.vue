@@ -14,6 +14,7 @@
                 <switcher-docs v-if="activeNav === 'Switcher'"></switcher-docs>
                 <modal-docs v-if="activeNav === 'Modal'"></modal-docs>
                 <uploader-docs v-if="activeNav === 'Uploader'"></uploader-docs>
+                <sortable-docs v-if="activeNav === 'Sortable'"></sortable-docs>
             </main>
         </div>
     </div>
@@ -27,9 +28,10 @@
     import DropmenuDocs from "./DropmenuDocs";
     import ToggleButtonsDocs from "./ToggleButtonsDocs";
     import UploaderDocs from "./UploaderDocs";
+    import SortableDocs from "./SortableDocs";
 
     export default {
-        components: { Sidebar, ToggleButtonsDocs, DropdownDocs, DropmenuDocs, SwitcherDocs, ModalDocs, UploaderDocs },
+        components: { Sidebar, ToggleButtonsDocs, DropdownDocs, DropmenuDocs, SwitcherDocs, ModalDocs, UploaderDocs, SortableDocs },
         data: () => {
             return {
                 activeNav: 'ToggleButtons',

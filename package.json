@@ -10,7 +10,7 @@
     "prod": "vue-cli-service serve --mode=production"
   },
   "dependencies": {
-    "@shopify/draggable": "^1.0.0-beta.8",
+    "@shopify/draggable": "^1.0.0-beta.6",
     "autoprefixer": "latest",
     "core-js": "^3.4.4",
     "tailwindcss": "^1.2.0",
