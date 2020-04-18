@@ -43,6 +43,7 @@
                     {value: 'Modal', label: 'Modal'},
                     {value: 'Sortable', label: 'Sortable'},
                     {value: 'Switcher', label: 'Switcher'},
+                    {value: 'Tabs', label: 'Tabs'},
                     {value: 'ToggleButtons', label: 'Toggle Buttons'},
                     {value: 'Uploader', label: 'Uploader'},
                 ]
