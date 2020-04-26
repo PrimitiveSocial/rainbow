@@ -99,6 +99,8 @@
                 this.$refs.cropper.rotate(deg);
             },
             cropOnEnterKey(event) {
+                event.stopPropagation();
+                event.preventDefault();
                 if(event.keyCode === 13)
                     this.crop();
             }
