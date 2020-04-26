@@ -66,6 +66,9 @@
                 this.$emit('input', this.selectedItems);
             },
             navigate(event){
+                event.stopPropagation();
+                event.preventDefault();
+
                 // arrow up
                 if (event.keyCode === 38 && this.currentItem > 0) {
                     this.currentItem--;
