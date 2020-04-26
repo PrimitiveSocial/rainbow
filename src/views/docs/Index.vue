@@ -12,6 +12,7 @@
                     <dropmenu-docs v-if="activeNav === 'Dropmenu'"></dropmenu-docs>
                     <dropdown-docs v-if="activeNav === 'Dropdown'"></dropdown-docs>
                     <modal-docs v-if="activeNav === 'Modal'"></modal-docs>
+                    <multi-select-docs v-if="activeNav === 'MultiSelect'"></multi-select-docs>
                     <sortable-docs v-if="activeNav === 'Sortable'"></sortable-docs>
                     <switcher-docs v-if="activeNav === 'Switcher'"></switcher-docs>
                     <tabs-docs v-if="activeNav === 'Tabs'"></tabs-docs>
@@ -31,6 +32,7 @@
 <script>
     import Sidebar from "./Sidebar";
     import ModalDocs from "./ModalDocs";
+    import MultiSelectDocs from "./MultiSelectDocs";
     import DropdownDocs from "./DropdownDocs";
     import SwitcherDocs from "./SwitcherDocs";
     import DropmenuDocs from "./DropmenuDocs";
@@ -41,7 +43,7 @@
     import Note from "./Note";
 
     export default {
-        components: { Sidebar, ToggleButtonsDocs, DropdownDocs, DropmenuDocs, SwitcherDocs, ModalDocs, UploaderDocs, SortableDocs, TabsDocs, Note },
+        components: { Sidebar, ToggleButtonsDocs, DropdownDocs, DropmenuDocs, SwitcherDocs, ModalDocs, MultiSelectDocs, UploaderDocs, SortableDocs, TabsDocs, Note },
         data: () => {
             return {
                 activeNav: 'Dropmenu',

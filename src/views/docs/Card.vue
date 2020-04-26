@@ -6,9 +6,7 @@
                     <h3 class="text-lg leading-6 font-medium text-gray-800">
                         {{ title }}
                     </h3>
-                    <p v-if="description" class="text-xs text-gray-500">
-                        {{ description }}
-                    </p>
+                    <p v-if="description" class="text-xs text-gray-500" v-html="description"></p>
                 </div>
                 <div class="ml-4 mt-2">
                     <span @click="activeSlot = 'preview'" class="cursor-pointer rounded-md py-2 px-3 mx-1 text-xs hover:bg-gray-300 hover:text-gray-600" :class="activeClass('preview')">Preview</span>
