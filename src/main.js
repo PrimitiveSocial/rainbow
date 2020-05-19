@@ -29,6 +29,9 @@ Vue.prototype.$modal = {
 import VueCodeHighlight from 'vue-code-highlight';
 Vue.use(VueCodeHighlight);
 
+// clockwork validation package
+import {VueClockwork} from "@primitivesocial/clockwork";
+Vue.use(VueClockwork);
 
 new Vue({
     router,
