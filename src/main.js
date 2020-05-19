@@ -29,10 +29,6 @@ Vue.prototype.$modal = {
 import VueCodeHighlight from 'vue-code-highlight';
 Vue.use(VueCodeHighlight);
 
-// register ps-validation package
-import PsValidation from "@primitivesocial/ps-validation";
-Vue.use(PsValidation);
-
 
 new Vue({
     router,
